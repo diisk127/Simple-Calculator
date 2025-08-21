@@ -48,4 +48,4 @@ chom - Planner of Calculator Program / test case
 5. ทดสอบโปรแกรม (Test Cases)
 
 
-disk - coder/test case
+disk - coder / test case
