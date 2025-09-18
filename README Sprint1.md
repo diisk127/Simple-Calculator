@@ -214,7 +214,7 @@ calculator()
 *	แก้ bug ที่พบจาก unit/integration test
 *	ตรวจสอบข้อความ error ให้เข้าใจง่ายและตรงตามเงื่อนไข
 
-##การแบ่งหน้าที่ในธีม
+## การแบ่งหน้าที่ในธีม
 ---
 1. ชม (Planner & Debugger)
 * วางแผนการทำงาน
@@ -226,9 +226,9 @@ calculator()
 * ทดสอบโปรแกรมเบื้องต้น ทำ unit test, integration test และแก้ไขบั๊กจากผลการทดสอบ
 
 
-##อธิบายโค้ดที่เพิ่มเข้ามา
+## อธิบายโค้ดที่เพิ่มเข้ามา
 ---
-###1. ฟังก์ชันคำนวณ simple_calculator(expr)
+### 1. ฟังก์ชันคำนวณ simple_calculator(expr)
 * Binary operator: +, -, *, /
 *	รับ input 2 ตัวเลข เช่น "5 + 3"
 *	ตรวจสอบ division by zero
@@ -242,7 +242,7 @@ calculator()
 *	ใช้ try-except เพื่อจับ error input ไม่ถูกต้องหรือ format ผิด
 *	แสดงข้อความ error แทน crash โปรแกรม
 
-###2. Main Loop calculator()
+### 2. Main Loop calculator()
 * แสดง เมนูและตัวอย่างการป้อน expression
 *	while True ให้ผู้ใช้ป้อน expression ต่อเนื่อง
 *	ป้อน "exit" → โปรแกรมหยุดทำงาน
@@ -250,7 +250,7 @@ calculator()
 *	แสดง Result: พร้อม separator เพื่อความชัดเจน
 
 
-##Test case
+## Test case
 ---
 
 Enter expression: 10 + 1
@@ -352,7 +352,7 @@ Enter expression: tan 90
 	•	ป้อน "exit" → โปรแกรมหยุดทำงาน
 
 
-##error ที่พบเจอ
+## error ที่พบเจอ
 ---
 1.	ZeroDivisionError
 * 	สาเหตุ: / กับตัวหาร = 0
