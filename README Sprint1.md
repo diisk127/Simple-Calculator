@@ -188,3 +188,187 @@ calculator()
 	•	หารด้วย 0 → แสดงข้อความ “Cannot divide by zero”
 	•	เลือกเมนูผิด → แสดงข้อความ “Please try again”
 	•	เลือก exit → โปรแกรมหยุดทำงาน
+
+---
+# แผนการดำเนินงาน Sprint 3
+
+## งานที่ต้องทำในสัปดาห์นี้
+---
+
+1. ตรวจสอบและปรับปรุงโค้ด
+*	ตรวจสอบว่า simple_calculator() รองรับทุกฟังก์ชัน (binary/unary) ถูกต้อง
+*	เพิ่ม try-except ในส่วน input เพื่อป้องกัน crash ถ้าผู้ใช้ป้อนตัวอักษร
+*	ตรวจสอบการปัดทศนิยม (round()) ของแต่ละฟังก์ชัน
+*	ตรวจสอบการจัดการ division by zero และ factorial ที่ผิดเงื่อนไข
+
+2. ทำ Unit Test
+*	ทดสอบฟังก์ชันแต่ละตัวแยกกัน: add, subtract, multiply, divide, sin, cos, tan, sqrt, pow2, fact
+*	ทดสอบทั้ง input ปกติ และ input ผิด/edge cases
+
+3. ทำ Integration Test
+*	ทดสอบระบบทั้งหมดรวม main loop (calculator())
+*	ตรวจสอบ input expression แบบต่าง ๆ
+*	ตรวจสอบการป้อน exit และการแสดงผล separator / message
+
+4. Debug และแก้ไขปัญหา
+*	แก้ bug ที่พบจาก unit/integration test
+*	ตรวจสอบข้อความ error ให้เข้าใจง่ายและตรงตามเงื่อนไข
+
+##การแบ่งหน้าที่ในธีม
+---
+1. ชม (Planner & Debugger)
+* วางแผนการทำงาน
+* ออกแบบโครงสร้างเมนูโปรแกรม
+* ตรวจสอบ logic ของฟังก์ชัน และช่วยแก้ไขข้อผิดพลาด (bugs)
+* ออกแบบ UX และ flow การป้อน expression
+2. ดิสก์ (Coder & Debugger)
+* เขียนฟังก์ชันคำนวณ (simple_calculator) และ main loop (calculator)
+* ทดสอบโปรแกรมเบื้องต้น ทำ unit test, integration test และแก้ไขบั๊กจากผลการทดสอบ
+
+
+##อธิบายโค้ดที่เพิ่มเข้ามา
+---
+###1. ฟังก์ชันคำนวณ simple_calculator(expr)
+* Binary operator: +, -, *, /
+*	รับ input 2 ตัวเลข เช่น "5 + 3"
+*	ตรวจสอบ division by zero
+*	ใช้ round(...,2) สำหรับ precision
+*	Unary operator: sin, cos, tan, sqrt, pow2, fact เช่น "sin 90", "sqrt 16", "pow2 5", "fact 5"
+*	sin, cos, tan ใช้ math.radians(a)
+*	sqrt → sqrt ของตัวเลข
+*	pow2 → ยกกำลัง 2
+*	fact → factorial ของจำนวนเต็ม ≥ 0
+*	Error handling:
+*	ใช้ try-except เพื่อจับ error input ไม่ถูกต้องหรือ format ผิด
+*	แสดงข้อความ error แทน crash โปรแกรม
+
+###2. Main Loop calculator()
+* แสดง เมนูและตัวอย่างการป้อน expression
+*	while True ให้ผู้ใช้ป้อน expression ต่อเนื่อง
+*	ป้อน "exit" → โปรแกรมหยุดทำงาน
+*	เรียก simple_calculator(expr) เพื่อคำนวณและแสดงผล
+*	แสดง Result: พร้อม separator เพื่อความชัดเจน
+
+
+##Test case
+---
+
+Enter expression: 10 + 1
+  
+  Result: 11.0
+
+Enter expression: 10 - 8
+  
+  Result: 2.0
+
+Enter expression: 15 + -3
+  
+  Result: 12.0
+
+Enter expression: 6 * 3
+  
+  Result: 18.0
+
+Enter expression: 8 / 4
+  
+  Result: 2.0
+
+Enter expression: 8 / 0
+  
+  Result: Cannot divide by zero
+
+Enter expression: sin 30
+  
+  Result: 0.5
+
+Enter expression: cos 45
+  
+  Result: 0.7071
+
+Enter expression: tan 45
+  
+  Result: 1.0
+
+Enter expression: sin 31.5
+  
+  Result: 0.5225
+
+Enter expression: sqrt 64
+  
+  Result: 8.0
+
+Enter expression: sqrt 150
+  
+  Result: 12.25
+
+Enter expression: pow2 67
+  
+  Result: 4489.0
+
+Enter expression: pow2 10.5
+  
+  Result: 110.25
+
+Enter expression: fact 10
+  
+  Result: 3628800
+
+Enter expression: face -2
+  
+  Result: Unknown operator. Please try agian.
+
+Enter expression: fact 0
+  
+  Result: 1
+
+Enter expression: 5+3
+  
+  Result: Invalid input format
+
+Enter expression: sin 30 + 5
+  
+  Result: Invalid input format
+
+Enter expression: 4 + 2 * 5
+  
+  Result: Invalid input format
+
+Enter expression: cos (30)
+  
+  Result: Error: could not convert string to float: '(30)'
+
+Enter expression: tan 90
+  
+  Result: 1.633123935319537e+16
+
+
+ ## Integration Test (ทดสอบระบบทั้งหมด)
+ ---
+	•	ป้อน binary expression → ตรวจสอบผลลัพธ์ถูกต้อง
+	•	ป้อน unary expression → ตรวจสอบผลลัพธ์ถูกต้อง
+	•	ป้อน input ไม่ถูกต้อง เช่น "abc + 5" → แสดง error message
+	•	ป้อน operator ไม่รู้จัก → "Unknown operator. Please try again."
+	•	ป้อน expression ผิด format เช่น "5 +" → "Invalid input format"
+	•	ป้อน "exit" → โปรแกรมหยุดทำงาน
+
+
+##error ที่พบเจอ
+---
+1.	ZeroDivisionError
+* 	สาเหตุ: / กับตัวหาร = 0
+* 	แก้ไข: if b == 0:   return "Cannot divide by zero"
+2.	Input ไม่ใช่ตัวเลข
+* 	สาเหตุ: float("abc") → ValueError
+* 	แก้ไข: try-except เพื่อจับ error
+3.	Factorial ไม่เป็นจำนวนเต็มหรือ <0
+* 	ตรวจสอบ: a.is_integer() and a >= 0
+* 	Error message: "Factorial must be greater than zero."
+4.	Operator ไม่รู้จัก
+*	 แสดงข้อความแจ้งผู้ใช้: "Unknown operator. Please try again."
+5.	Expression format ผิด
+* 	เช่น "5 +" → "Invalid input format"
+6.	Rounding errors
+* 	ใช้ round(...,2) สำหรับ binary operator
+* 	ใช้ round(...,4) สำหรับ trig functions
+
+  
