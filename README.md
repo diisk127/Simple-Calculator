@@ -371,4 +371,4 @@ Enter expression: tan 90
 * 	ใช้ round(...,2) สำหรับ binary operator
 * 	ใช้ round(...,4) สำหรับ trig functions
 
-  
+
