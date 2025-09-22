@@ -371,4 +371,38 @@ Enter expression: tan 90
 * 	ใช้ round(...,2) สำหรับ binary operator
 * 	ใช้ round(...,4) สำหรับ trig functions
 
+---
+# Sprint Final Planner: Simple Calculator (GUI Version)
 
+## 1. Goal 
+	•	พัฒนา Simple Calculator ให้มี Graphical User Interface (GUI) โดยใช้ Tkinter
+	•	ทำให้การใช้งานสะดวกขึ้น ใช้งานได้ผ่านปุ่มกด ไม่ต้องพิมพ์ expression เอง
+	•	รักษาความถูกต้องของ logic การคำนวณจาก Week 3 และทดสอบให้ครบถ้วน
+
+---
+
+## 2. Task Breakdown 
+	•	นำโค้ดจาก Week 3 มาเป็นฐาน (logic ของการคำนวณ)
+	•	ออกแบบโครงสร้าง GUI:
+	•	Layout ของปุ่ม (ตัวเลข 0–9, เครื่องหมาย + - × ÷, ฟังก์ชันพิเศษเช่น sin, cos, sqrt ฯลฯ)
+	•	ช่องแสดงผล (Display)
+	•	เขียนโค้ดเชื่อมปุ่มกับฟังก์ชัน logic
+	•	ทดสอบความถูกต้องของการคำนวณทั้งเลขพื้นฐานและฟังก์ชันพิเศษ
+	•	แก้ไขบั๊กและปรับปรุง usability เช่น ปุ่ม Clear, ปุ่ม Delete
+	•	สรุปผลลัพธ์และเตรียมสไลด์/รายงาน
+
+---
+
+## 3. Timeline 
+	• 	Day 1–2: ทบทวนโค้ด Week 3 และแยกส่วน logic ออกมาใช้งาน
+	•	Day 3–4: ออกแบบ GUI (wireframe หรือ sketch layout)
+	•	Day 5–6: เขียนโค้ด GUI และเชื่อมกับ logic
+	•	Day 7: ทดสอบการทำงาน, Debug และปรับปรุง
+	•	Day 8: เตรียมสรุปและทำสไลด์นำเสนอ
+
+---
+
+## 4. Expected Outcome (ผลลัพธ์ที่คาดหวัง)
+	•	ได้โปรแกรม Simple Calculator แบบ GUI ที่ใช้งานได้จริง
+	•	มีการเชื่อมต่อ logic กับ GUI อย่างสมบูรณ์
+	•	พร้อมสำหรับการนำเสนอในรอบสุดท้าย (Sprint Final Presentation)
